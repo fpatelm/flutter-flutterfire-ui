@@ -12,11 +12,15 @@ class AuthGate extends StatelessWidget {
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return SignInScreen(
-            providerConfigs: [PhoneProviderConfiguration()],
+          return const SignInScreen(
+            providerConfigs: [
+              GoogleProviderConfiguration(
+                  clientId:
+                      '***************-mka8ol21bievl9e901f9bsd7dmbntjv9.apps.googleusercontent.com')
+            ],
           );
         }
-        return MyHomePage(title: 'Flutter Demo Home Page');
+        return const MyHomePage(title: 'Flutter Demo Home Page');
       },
     );
   }
